@@ -1,7 +1,8 @@
 import { simpleGit, SimpleGit, SimpleGitOptions } from 'simple-git';
 import path from 'path';
+import { performance } from 'perf_hooks';
 
-const pathToRepo = path.resolve("../unbiased-watch/");
+const pathToRepo = path.resolve("../buckets/");
 
 const options: Partial<SimpleGitOptions> = {
    baseDir: pathToRepo,
@@ -11,6 +12,8 @@ const options: Partial<SimpleGitOptions> = {
 };
 
 const git: SimpleGit = simpleGit(options);
+
+const startTime = performance.now()
 
 const mergeSummary = await git.merge(["new_branch_test"]).catch((err) => {
     if (err.git) {
@@ -25,3 +28,7 @@ const mergeSummary = await git.merge(["new_branch_test"]).catch((err) => {
  else {
     console.log(mergeSummary)
  }
+
+const endTime = performance.now()
+
+console.log(`Time: ${endTime - startTime} milliseconds`)

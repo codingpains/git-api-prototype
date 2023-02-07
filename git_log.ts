@@ -1,7 +1,8 @@
 import { simpleGit, SimpleGit, SimpleGitOptions } from 'simple-git';
 import path from 'path';
+import { performance } from 'perf_hooks';
 
-const pathToRepo = path.resolve("../aws/buckets/");
+const pathToRepo = path.resolve("../buckets/");
 
 const options: Partial<SimpleGitOptions> = {
    baseDir: pathToRepo,
@@ -10,7 +11,12 @@ const options: Partial<SimpleGitOptions> = {
    trimmed: false,
 };
 
-// when setting all options in a single object
 const git: SimpleGit = simpleGit(options);
 
+const startTime = performance.now()
+
 console.log(await git.log());
+
+const endTime = performance.now()
+
+console.log(`Time: ${endTime - startTime} milliseconds`)
