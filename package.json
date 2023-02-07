@@ -1,0 +1,19 @@
+{
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "typescript": "^4.9.5"
+  },
+  "scripts": {
+    "log": "npx ts-node-esm git_log.ts",
+    "commit": "npx ts-node-esm git_commit.ts",
+    "start": "node open_repo.js",
+    "diff": "npx ts-node-esm git_diff.ts",
+    "checkout": "npx ts-node-esm git_checkout.ts",
+    "merge": "npx ts-node-esm git_merge.ts"
+  },
+  "dependencies": {
+    "simple-git": "^3.16.0",
+    "ts-node": "^10.9.1"
+  },
+  "type": "module"
+}
