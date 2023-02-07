@@ -15,7 +15,7 @@ const git: SimpleGit = simpleGit(options);
 
 const startTime = performance.now()
 
-console.log(await git.diff(["main..test"]))
+console.log(await git.diff(["main..new_branch_test"]))
 
 const endTime = performance.now()
 
