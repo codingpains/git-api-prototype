@@ -3,7 +3,7 @@ import path from 'path';
 import fs from 'fs'
 import { performance } from 'perf_hooks';
 
-const pathToRepo = path.resolve("../buckets/");
+const pathToRepo = path.resolve("../../buckets/");
 
 const options: Partial<SimpleGitOptions> = {
    baseDir: pathToRepo,

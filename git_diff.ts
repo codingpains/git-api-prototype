@@ -2,7 +2,7 @@ import { simpleGit, SimpleGit, SimpleGitOptions } from 'simple-git';
 import path from 'path';
 import { performance } from 'perf_hooks';
 
-const pathToRepo = path.resolve("../buckets/");
+const pathToRepo = path.resolve("../../buckets/");
 
 const options: Partial<SimpleGitOptions> = {
    baseDir: pathToRepo,
