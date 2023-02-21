@@ -1,8 +1,13 @@
 import { simpleGit, SimpleGit, SimpleGitOptions } from 'simple-git';
 import path from 'path';
 import { performance } from 'perf_hooks';
+import { exec } from 'child_process'
+import util from 'util';
 
-const pathToRepo = path.resolve("../../buckets/");
+const execAsync = util.promisify(exec)
+
+// const pathToRepo = path.resolve("../../buckets/");
+const pathToRepo = path.resolve("../working/");
 
 const options: Partial<SimpleGitOptions> = {
    baseDir: pathToRepo,
@@ -15,7 +20,7 @@ const git: SimpleGit = simpleGit(options);
 
 const startTime = performance.now()
 
-const mergeSummary = await git.merge(["new_branch_test"]).catch((err) => {
+const mergeSummary = await git.merge(["v1"]).catch((err) => {
     if (err.git) {
        return err.git;
     }
@@ -26,7 +31,12 @@ const mergeSummary = await git.merge(["new_branch_test"]).catch((err) => {
     console.error(`Merge resulted in ${mergeSummary.conflicts.length} conflicts`);
  }
  else {
-    console.log(mergeSummary)
+   console.log(mergeSummary)
+   let res = await execAsync('aws s3 sync --acl public-read ../working s3://git-api-prototype/main')
+   if (res.stderr) {  
+      console.error(res.stderr);  
+  }  
+  console.log(res.stdout) 
  }
 
 const endTime = performance.now()

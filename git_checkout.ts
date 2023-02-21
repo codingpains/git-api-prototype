@@ -2,7 +2,7 @@ import { simpleGit, SimpleGit, SimpleGitOptions } from 'simple-git';
 import path from 'path';
 import { performance } from 'perf_hooks';
 
-const pathToRepo = path.resolve("../../buckets/");
+const pathToRepo = path.resolve("../working/");
 
 const options: Partial<SimpleGitOptions> = {
    baseDir: pathToRepo,
@@ -15,10 +15,10 @@ const git: SimpleGit = simpleGit(options);
 
 const startTime = performance.now()
 
-const r = await git.checkoutBranch("new_branch_test", "main")
+const r = await git.checkout("main")
 
 console.log(r)
 
 const endTime = performance.now()
 
-console.log(`Time: ${endTime - startTime} milliseconds`)
+console.log(`Git checkout Time: ${endTime - startTime} milliseconds`)

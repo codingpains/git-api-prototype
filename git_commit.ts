@@ -3,7 +3,8 @@ import path from 'path';
 import fs from 'fs'
 import { performance } from 'perf_hooks';
 
-const pathToRepo = path.resolve("../../buckets/");
+// const pathToRepo = path.resolve("../../buckets/");
+const pathToRepo = path.resolve("../working/");
 
 const options: Partial<SimpleGitOptions> = {
    baseDir: pathToRepo,
@@ -12,7 +13,7 @@ const options: Partial<SimpleGitOptions> = {
    trimmed: false,
 };
 
-fs.appendFileSync(pathToRepo+"/test.txt", '\nCool');
+fs.appendFileSync(pathToRepo+"/schema.txt", '\nCool');
 
 const git: SimpleGit = simpleGit(options);
 
@@ -21,7 +22,7 @@ const startTime = performance.now()
 await git
    .addConfig('user.name', 'Someone')
    .addConfig('user.email', 'some@one.com')
-   .add('test.txt')
+   .add('schema.txt')
    .commit('Test');
 
 const endTime = performance.now()

@@ -1,0 +1,14 @@
+{
+  "conflicts" : [
+    "{",
+    "    \"name\": \"git-api-prototype\",",
+    "    <<<<<<< YOUR CHANGES:version.json",
+    "    \"id\": 1,",
+    "    =======",
+    "    \"id\": 123,",
+    "    >>>>>>> THEIR CHANGES:main.json",
+    "    \"lockfileVersion\": 2,",
+    "    \"requires\": true",
+    "}"
+  ]
+}
