@@ -8,7 +8,7 @@ function merge(version, commonAncestor, main) {
     let res
 
     // Transform
-
+    // test
     //
     return {}
 }
