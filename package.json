@@ -17,10 +17,12 @@
     "checkout": "npx ts-node-esm git_checkout.ts",
     "initialize": "npx ts-node-esm initialize_local_schema.ts",
     "init": "npx ts-node-esm init.ts",
-    "diff3": "npx ts-node-esm merge.ts",
+    "diff3": "npx ts-node-esm merge.js",
     "test": "jest"
   },
   "dependencies": {
+    "diff3": "^0.0.4",
+    "n-readlines": "^1.0.1",
     "simple-git": "^3.16.0",
     "ts-node": "^10.9.1"
   },

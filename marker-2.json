@@ -8,7 +8,13 @@
     "    \"id\": 123,",
     ">>>>>>> THEIR CHANGES:main.json",
     "    \"lockfileVersion\": 2,",
-    "    \"requires\": true",
+    "<<<<<<< YOUR CHANGES:version.json",
+    "    \"requires\": true,",
+    "    \"tag\": \"0\"",
+    "=======",
+    "    \"requires\": true,",
+    "    \"tag\": \"yes\"",
+    ">>>>>>> THEIR CHANGES:main.json",
     "}"
   ]
 }
